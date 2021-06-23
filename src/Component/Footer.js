@@ -1,7 +1,5 @@
 import React from "react";
 import { makeStyles } from "@material-ui/styles";
-import useMediaQuery from "@material-ui/core/useMediaQuery";
-import { useTheme } from "@material-ui/core/styles";
 import { Grid, Typography } from "@material-ui/core";
 import GitHubIcon from "@material-ui/icons/GitHub";
 import LinkedInIcon from "@material-ui/icons/LinkedIn";
@@ -10,7 +8,7 @@ import brandLogo from "../assets/brandLogo.png";
 
 const useStyles = makeStyles((theme) => ({
   footerContainer: {
-    padding: "4rem 0",
+    padding: "3rem 0 0 0",
     height: "40rem",
   },
   spanText: {
@@ -21,6 +19,10 @@ const useStyles = makeStyles((theme) => ({
     border: "1px solid #127eb1",
     borderRadius: "50%",
     padding: "7px",
+    color: "#000",
+    "&:hover": {
+      backgroundColor: "#127eb1",
+    },
   },
 }));
 
@@ -72,13 +74,25 @@ const footer = (props) => {
             </Grid>
             <Grid item>
               <Grid container justify="space-between">
-                <Grid item>
+                <Grid
+                  item
+                  component={"a"}
+                  href="https://github.com/anshumank72"
+                >
                   <GitHubIcon className={classes.socialIcon} />
                 </Grid>
-                <Grid item>
+                <Grid
+                  item
+                  component={"a"}
+                  href="https://www.linkedin.com/in/anshuman-kashyap-29ba58201/"
+                >
                   <LinkedInIcon className={classes.socialIcon} />
                 </Grid>
-                <Grid item>
+                <Grid
+                  item
+                  component={"a"}
+                  href="https://github.com/anshumank72"
+                >
                   <TwitterIcon className={classes.socialIcon} />
                 </Grid>
               </Grid>
