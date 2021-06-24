@@ -15,7 +15,9 @@ const useStyles = makeStyles((theme) => ({
     padding: "4rem 0",
     height: "40rem",
     [theme.breakpoints.down("md")]: {
-      marginLeft: "1em",
+      textAlign: "center",
+      padding: "2rem 0",
+      height: "36.5rem",
     },
   },
   spanText: {
@@ -34,6 +36,9 @@ const useStyles = makeStyles((theme) => ({
   image: {
     width: "100%",
     height: "40em",
+    position: "absolute",
+    right: "10%",
+    top: "3%",
     [theme.breakpoints.down("sm")]: {
       width: "100%",
       height: "auto",
@@ -146,7 +151,7 @@ const footer = (props) => {
         </Grid>
       </Grid>
       <Hidden smDown>
-        <Grid item lg={7} md={8} style={{ marginTop: "1em" }}>
+        <Grid item lg={7} md={8} style={{ position: "relative" }}>
           <img src={greenPhoto} alt="image" className={classes.image} />
         </Grid>
       </Hidden>

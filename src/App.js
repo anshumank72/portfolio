@@ -5,6 +5,7 @@ import { ThemeProvider } from "@material-ui/styles";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import Home from "./Container/Home";
 import Contact from "./Component/Contact";
+import About from "./Component/About";
 
 class App extends Component {
   render() {
@@ -14,7 +15,7 @@ class App extends Component {
           <Header />
           <Switch>
             <Route path="/" exact component={Home} />
-            <Route path="/about" exact component={() => <div>about</div>} />
+            <Route path="/about" exact component={About} />
             <Route
               path="/portfolio"
               exact
