@@ -31,8 +31,8 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.down("sm")]: {
       width: "25em",
     },
-    [theme.breakpoints.down("sm")]: {
-      width: "18em",
+    [theme.breakpoints.down("xs")]: {
+      width: "17em",
       height: "auto",
       zindex: 10,
     },
@@ -117,27 +117,38 @@ const useStyles = makeStyles((theme) => ({
       transform: "translateY(-4px)",
     },
   },
-  image: {
-    width: "70%",
-    height: "auto",
-    boxShadow: "1px 1px 10px 12px rgb(104 104 240 / 20%)",
-    borderRadius: "3px",
+  projectTitle: {
+    fontSize: "1.3rem",
+    fontStyle: "italic",
+    marginBottom: "3.5rem",
   },
+
   projectDescription: {
     fontSize: "0.9rem",
     fontWeight: "400",
     lineHeight: "1.7",
     color: "#575757",
     marginBottom: "1.5rem",
+    [theme.breakpoints.down("md")]: {
+      marginBottom: "1rem",
+    },
+    [theme.breakpoints.down("sm")]: {
+      marginBottom: ".5rem",
+    },
   },
   buttonBlue: {
     padding: "1rem 3rem",
     backgroundColor: "#127eb1",
     color: "#fff",
     borderRadius: "50px",
+    marginRight: "1rem",
     "&:hover": {
       backgroundColor: "#fff",
       color: "#333",
+    },
+    [theme.breakpoints.down("md")]: {
+      padding: "0.6rem 2.5rem",
+      marginRight: "0.8rem",
     },
   },
   buttonWhite: {
@@ -148,6 +159,73 @@ const useStyles = makeStyles((theme) => ({
     "&:hover": {
       backgroundColor: "#127eb1",
       color: "#fff",
+    },
+    [theme.breakpoints.down("md")]: {
+      padding: "0.6rem 2.5rem",
+    },
+  },
+  imageContainer: {
+    textAlign: "right",
+    [theme.breakpoints.down("sm")]: {
+      textAlign: "center",
+      marginBottom: "2rem",
+    },
+  },
+  imageContainerAlt: {
+    textAlign: "left",
+    [theme.breakpoints.down("sm")]: {
+      textAlign: "center",
+      marginBottom: "2rem",
+    },
+  },
+  image: {
+    width: "80%",
+    height: "auto",
+    boxShadow: "1px 1px 10px 12px rgb(104 104 240 / 20%)",
+    borderRadius: "4px",
+    marginRight: "2rem",
+    [theme.breakpoints.down("sm")]: {
+      margin: "0 auto",
+    },
+  },
+  imageAlt: {
+    width: "80%",
+    height: "auto",
+    boxShadow: "1px 1px 10px 12px rgb(104 104 240 / 20%)",
+    borderRadius: "4px",
+    marginLeft: "2rem",
+    [theme.breakpoints.down("sm")]: {
+      margin: "0 auto",
+    },
+  },
+  textitemContainer: {
+    textAlign: "left",
+    [theme.breakpoints.down("sm")]: {
+      textAlign: "center",
+    },
+  },
+  textContainer: {
+    width: "80%",
+    [theme.breakpoints.down("sm")]: {
+      margin: "0 auto",
+    },
+  },
+  textContainerAlt: {
+    width: "80%",
+    marginLeft: "auto",
+    [theme.breakpoints.down("sm")]: {
+      margin: "0 auto",
+    },
+  },
+  projectTools: {
+    color: "#127eb1",
+    fontWeight: "400",
+    fontSize: "1rem",
+  },
+  buttonContainer: {
+    marginTop: "3rem",
+    [theme.breakpoints.down("sm")]: {
+      marginTop: "2rem",
     },
   },
 }));
@@ -221,17 +299,17 @@ const hero = () => {
               developer, from India .
             </Typography>
           </Grid>
-          <Grid item style={{ marginTop: "2rem" }}>
+          <Grid item style={{ marginTop: "2rem", width: "80%" }}>
             <Typography
               className={classes.description}
-              style={{ width: "80%", margin: "0 auto" }}
+              style={{ margin: "0 auto" }}
             >
               A passionate aspiring Front-end Developer Actively ready to join
               in a great lively team of a good start-up to adapt me in any
               situation and environment with ease and perform the best.
             </Typography>
           </Grid>
-          <Grid item style={{ marginTop: "2rem" }}>
+          <Grid item style={{ marginTop: "2rem", width: "80%" }}>
             <Typography className={classes.descriptionskills}>
               My current <span className={classes.spanText}>stack</span> of{" "}
               <span className={classes.spanText}>languages/technologies</span>{" "}
@@ -253,64 +331,91 @@ const hero = () => {
         {/*-----portfolio block-----*/}
         <Grid container direction="column" alignItems="center">
           <Grid item style={{ textAlign: "center" }}>
+            <Typography className={classes.headingabout}>portfolio</Typography>
             <Typography
-              className={classes.headingabout}
-              style={{ marginBottom: "1rem" }}
+              style={{
+                fontSize: "1.2rem",
+                fontWeight: "300",
+                color: "#575757",
+                marginTop: "1.5rem",
+              }}
             >
-              portfolio
-            </Typography>
-            <Typography
-              className={classes.description}
-              style={{ fontSize: "1.3rem" }}
-            >
-              check <span className={classes.spanText}>what </span> I've been
+              Check <span className={classes.spanText}>what</span> I've been
               doing <span className={classes.spanText}>lately</span>
             </Typography>
           </Grid>
-          <Grid item>
-            <Grid
-              container
-              direction="row"
-              justify="center"
-              style={{ margin: "6em 2em 0 4em" }}
-            >
-              <Grid item lg={6} md={6} style={{ textAlign: "center" }}>
-                <img
-                  src={Portfoilo}
-                  alt="portfolio snap"
-                  className={classes.image}
-                />
+          <Grid item style={{ marginTop: "6rem" }}>
+            <Grid container direction="column" alignItems="center">
+              <Grid item>
+                <Typography className={classes.projectTitle}>
+                  Anshuman Portfolio
+                </Typography>
               </Grid>
-              <Grid item lg={6} md={6}>
-                <Grid container direction="column" style={{ width: "70%" }}>
-                  <Grid item>
-                    <Typography className={classes.projectDescription}>
-                      This very website you're now watching. I wanted something
-                      fast and with good SEO for my portfolio, so i would like
-                      to add react that seemed best fit. It reads data from
-                      markdown files, so it's super easy for me to keep adding
-                      Portfolio items as I keep developing stuff.
-                    </Typography>
-                    <Typography className={classes.skills}>
-                      REACT - STYLED COMPONENTS - MODULE CSS - MATERIAL UI
-                    </Typography>
-                    <Grid item>
-                      <Grid container style={{ marginTop: "2rem" }}>
-                        <Grid item style={{ marginRight: "2rem" }}>
-                          <Button
-                            variant="contained"
-                            className={classes.buttonBlue}
-                          >
-                            Visit
-                          </Button>
-                        </Grid>
-                        <Grid item>
-                          <Button
-                            variant="contained"
-                            className={classes.buttonWhite}
-                          >
-                            Source
-                          </Button>
+              <Grid item>
+                <Grid container direction="row">
+                  <Grid
+                    item
+                    lg={6}
+                    md={6}
+                    sm={12}
+                    className={classes.imageContainer}
+                  >
+                    <img
+                      alt="portfolio image"
+                      src={Portfoilo}
+                      className={classes.image}
+                    />
+                  </Grid>
+                  <Grid
+                    item
+                    lg={6}
+                    md={6}
+                    sm={12}
+                    className={classes.textitemContainer}
+                  >
+                    <Grid
+                      container
+                      direction="column"
+                      alignItems={matchesSM ? "center" : undefined}
+                      className={classes.textContainer}
+                    >
+                      <Grid item>
+                        <Typography className={classes.projectDescription}>
+                          This very website you're now watching. I wanted
+                          something fast and with good SEO for my portfolio, so
+                          i would like to add react that seemed best fit. It
+                          reads data from markdown files, so it's super easy for
+                          me to keep adding Portfolio items as I keep developing
+                          stuff.
+                        </Typography>
+                      </Grid>
+                      <Grid item>
+                        <Typography className={classes.projectTools}>
+                          REACT - STYLED COMPONENTS - MODULE CSS
+                        </Typography>
+                      </Grid>
+                      <Grid item className={classes.buttonContainer}>
+                        <Grid
+                          container
+                          direction="row"
+                          justify={matchesSM ? "center" : "flex-start"}
+                        >
+                          <Grid item>
+                            <Button
+                              variant="contained"
+                              className={classes.buttonBlue}
+                            >
+                              Visit
+                            </Button>
+                          </Grid>
+                          <Grid item>
+                            <Button
+                              variant="contained"
+                              className={classes.buttonWhite}
+                            >
+                              Source
+                            </Button>
+                          </Grid>
                         </Grid>
                       </Grid>
                     </Grid>
@@ -319,50 +424,320 @@ const hero = () => {
               </Grid>
             </Grid>
           </Grid>
-          <Grid item>
-            <Grid
-              container
-              direction="row-reverse"
-              justify="center"
-              style={{ margin: "6em 2em 0 4em" }}
-            >
-              <Grid item lg={6} md={6} style={{ textAlign: "center" }}>
-                <img
-                  src={Portfoilo}
-                  alt="portfolio snap"
-                  className={classes.image}
-                />
+          <Grid item style={{ marginTop: "6rem" }}>
+            <Grid container direction="column" alignItems="center">
+              <Grid item>
+                <Typography className={classes.projectTitle}>
+                  OYO Clone
+                </Typography>
               </Grid>
-              <Grid item lg={6} md={6}>
-                <Grid container direction="column" style={{ width: "70%" }}>
-                  <Grid item>
-                    <Typography className={classes.projectDescription}>
-                      This very website you're now watching. I wanted something
-                      fast and with good SEO for my portfolio, so i would like
-                      to add react that seemed best fit. It reads data from
-                      markdown files, so it's super easy for me to keep adding
-                      Portfolio items as I keep developing stuff.
-                    </Typography>
-                    <Typography className={classes.skills}>
-                      REACT - STYLED COMPONENTS - MODULE CSS - MATERIAL UI
-                    </Typography>
-                    <Grid item>
-                      <Grid container style={{ marginTop: "2rem" }}>
-                        <Grid item style={{ marginRight: "2rem" }}>
-                          <Button
-                            variant="contained"
-                            className={classes.buttonBlue}
-                          >
-                            Visit
-                          </Button>
+              <Grid item>
+                <Grid
+                  container
+                  direction={matchesSM ? "column-reverse" : "row"}
+                >
+                  <Grid
+                    item
+                    lg={6}
+                    md={6}
+                    sm={12}
+                    className={classes.textitemContainer}
+                  >
+                    <Grid
+                      container
+                      direction="column"
+                      alignItems={matchesSM ? "center" : undefined}
+                      className={classes.textContainerAlt}
+                    >
+                      <Grid item>
+                        <Typography className={classes.projectDescription}>
+                          This very website you're now watching. I wanted
+                          something fast and with good SEO for my portfolio, so
+                          i would like to add react that seemed best fit. It
+                          reads data from markdown files, so it's super easy for
+                          me to keep adding Portfolio items as I keep developing
+                          stuff.
+                        </Typography>
+                      </Grid>
+                      <Grid item>
+                        <Typography className={classes.projectTools}>
+                          REACT - STYLED COMPONENTS - MODULE CSS
+                        </Typography>
+                      </Grid>
+                      <Grid item className={classes.buttonContainer}>
+                        <Grid
+                          container
+                          direction="row"
+                          justify={matchesSM ? "center" : "flex-start"}
+                        >
+                          <Grid item>
+                            <Button
+                              variant="contained"
+                              className={classes.buttonBlue}
+                            >
+                              Visit
+                            </Button>
+                          </Grid>
+                          <Grid item>
+                            <Button
+                              variant="contained"
+                              className={classes.buttonWhite}
+                            >
+                              Source
+                            </Button>
+                          </Grid>
                         </Grid>
-                        <Grid item>
-                          <Button
-                            variant="contained"
-                            className={classes.buttonWhite}
-                          >
-                            Source
-                          </Button>
+                      </Grid>
+                    </Grid>
+                  </Grid>
+                  <Grid
+                    item
+                    lg={6}
+                    md={6}
+                    sm={12}
+                    className={classes.imageContainerAlt}
+                  >
+                    <img
+                      alt="portfolio image"
+                      src={Oyo}
+                      className={classes.imageAlt}
+                    />
+                  </Grid>
+                </Grid>
+              </Grid>
+            </Grid>
+          </Grid>
+          <Grid item style={{ marginTop: "6rem" }}>
+            <Grid container direction="column" alignItems="center">
+              <Grid item>
+                <Typography className={classes.projectTitle}>
+                  Movieflex
+                </Typography>
+              </Grid>
+              <Grid item>
+                <Grid container direction="row">
+                  <Grid
+                    item
+                    lg={6}
+                    md={6}
+                    sm={12}
+                    className={classes.imageContainer}
+                  >
+                    <img
+                      alt="portfolio image"
+                      src={Movieflex}
+                      className={classes.image}
+                    />
+                  </Grid>
+                  <Grid
+                    item
+                    lg={6}
+                    md={6}
+                    sm={12}
+                    className={classes.textitemContainer}
+                  >
+                    <Grid
+                      container
+                      direction="column"
+                      alignItems={matchesSM ? "center" : undefined}
+                      className={classes.textContainer}
+                    >
+                      <Grid item>
+                        <Typography className={classes.projectDescription}>
+                          This movie library is built with React which fetches
+                          the API for the data for the Searched input, the main
+                          Features of this website is showing the benefit of
+                          debouncing which reduces the number of calls of API
+                          request, and the are like pagination that allow users
+                          to paginate the data.
+                        </Typography>
+                      </Grid>
+                      <Grid item>
+                        <Typography className={classes.projectTools}>
+                          REACT - REACT REDUX - MATERIAL UI
+                        </Typography>
+                      </Grid>
+                      <Grid item className={classes.buttonContainer}>
+                        <Grid
+                          container
+                          direction="row"
+                          justify={matchesSM ? "center" : "flex-start"}
+                        >
+                          <Grid item>
+                            <Button
+                              variant="contained"
+                              className={classes.buttonBlue}
+                            >
+                              Visit
+                            </Button>
+                          </Grid>
+                          <Grid item>
+                            <Button
+                              variant="contained"
+                              className={classes.buttonWhite}
+                            >
+                              Source
+                            </Button>
+                          </Grid>
+                        </Grid>
+                      </Grid>
+                    </Grid>
+                  </Grid>
+                </Grid>
+              </Grid>
+            </Grid>
+          </Grid>
+          <Grid item style={{ marginTop: "6rem" }}>
+            <Grid container direction="column" alignItems="center">
+              <Grid item>
+                <Typography className={classes.projectTitle}>
+                  Food delivery App
+                </Typography>
+              </Grid>
+              <Grid item>
+                <Grid
+                  container
+                  direction={matchesSM ? "column-reverse" : "row"}
+                >
+                  <Grid
+                    item
+                    lg={6}
+                    md={6}
+                    sm={12}
+                    className={classes.textitemContainer}
+                  >
+                    <Grid
+                      container
+                      direction="column"
+                      alignItems={matchesSM ? "center" : undefined}
+                      className={classes.textContainerAlt}
+                    >
+                      <Grid item>
+                        <Typography className={classes.projectDescription}>
+                          This app is build with React and styled with
+                          bootStrap.Redux is used for state managment.It has
+                          Signup,Login,Logout functionality.I also added add to
+                          cart and remove from cart functionality.Signup and
+                          Login data are stored in local storage.
+                        </Typography>
+                      </Grid>
+                      <Grid item>
+                        <Typography className={classes.projectTools}>
+                          REACT - STYLED COMPONENTS - MODULE CSS
+                        </Typography>
+                      </Grid>
+                      <Grid item className={classes.buttonContainer}>
+                        <Grid
+                          container
+                          direction="row"
+                          justify={matchesSM ? "center" : "flex-start"}
+                        >
+                          <Grid item>
+                            <Button
+                              variant="contained"
+                              className={classes.buttonBlue}
+                            >
+                              Visit
+                            </Button>
+                          </Grid>
+                          <Grid item>
+                            <Button
+                              variant="contained"
+                              className={classes.buttonWhite}
+                            >
+                              Source
+                            </Button>
+                          </Grid>
+                        </Grid>
+                      </Grid>
+                    </Grid>
+                  </Grid>
+                  <Grid
+                    item
+                    lg={6}
+                    md={6}
+                    sm={12}
+                    className={classes.imageContainerAlt}
+                  >
+                    <img
+                      alt="portfolio image"
+                      src={Romato}
+                      className={classes.imageAlt}
+                    />
+                  </Grid>
+                </Grid>
+              </Grid>
+            </Grid>
+          </Grid>
+          <Grid item style={{ marginTop: "6rem" }}>
+            <Grid container direction="column" alignItems="center">
+              <Grid item>
+                <Typography className={classes.projectTitle}>
+                  Todo App
+                </Typography>
+              </Grid>
+              <Grid item>
+                <Grid container direction="row">
+                  <Grid
+                    item
+                    lg={6}
+                    md={6}
+                    sm={12}
+                    className={classes.imageContainer}
+                  >
+                    <img
+                      alt="portfolio image"
+                      src={Todo}
+                      className={classes.image}
+                    />
+                  </Grid>
+                  <Grid
+                    item
+                    lg={6}
+                    md={6}
+                    sm={12}
+                    className={classes.textitemContainer}
+                  >
+                    <Grid
+                      container
+                      direction="column"
+                      alignItems={matchesSM ? "center" : undefined}
+                      className={classes.textContainer}
+                    >
+                      <Grid item>
+                        <Typography className={classes.projectDescription}>
+                          A todo App, where the user has the ability to
+                          Add/Delete todos. Todos are saved to the state, which
+                          uses React and css modules.
+                        </Typography>
+                      </Grid>
+                      <Grid item>
+                        <Typography className={classes.projectTools}>
+                          REACT - STYLED COMPONENTS - MODULE CSS
+                        </Typography>
+                      </Grid>
+                      <Grid item className={classes.buttonContainer}>
+                        <Grid
+                          container
+                          direction="row"
+                          justify={matchesSM ? "center" : "flex-start"}
+                        >
+                          <Grid item>
+                            <Button
+                              variant="contained"
+                              className={classes.buttonBlue}
+                            >
+                              Visit
+                            </Button>
+                          </Grid>
+                          <Grid item>
+                            <Button
+                              variant="contained"
+                              className={classes.buttonWhite}
+                            >
+                              Source
+                            </Button>
+                          </Grid>
                         </Grid>
                       </Grid>
                     </Grid>
